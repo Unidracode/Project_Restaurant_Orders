@@ -9,11 +9,6 @@ class MenuData:
         self.dishes = set(self._read_csv(source_path))
 
     def _read_csv(self, source_path):
-        if not isinstance(source_path, str):
-            raise TypeError("sourse_path must be a string")
-        if not source_path.endswith(".csv"):
-            raise ValueError("The file must have a .csv extension")
-
         with open(source_path, encoding="utf-8") as file:
             data = csv.DictReader(file, delimiter=",")
             dishes = {}
